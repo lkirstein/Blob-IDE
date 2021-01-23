@@ -12,4 +12,4 @@ Update support status of WordCat versions
 ## Reporting a security issue
 
 Use the "Issues" section in the repository.\
-If you want to report a "Security issue", please write "[SECURITY] \*text\*" in the title.
+If you want to report a "Security issue", please use the "security" label.
