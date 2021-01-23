@@ -1,7 +1,7 @@
 # WordCat help manual
 
 ## Commandprompt:
-If you start WordCat from the commandprompt, you can use parameter.
+If you start WordCat from the commandprompt, you can use parameters.
 
 |Parameter|Effect|
 |-|-|
