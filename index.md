@@ -1,33 +1,22 @@
 View the [User Manual](https://github.com/FreshPlayer/WordCat/blob/ROOT/HELP.md) to get started or if you need help with the program.
 
-### 
+### Opensource project
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+WordCat is an opensource project.\
+Visit the repository on [GitHub](https://github.com/FreshPlayer/WordCat)\
+if you want to contribute.
 
-```markdown
-Syntax highlighted code block
+### Information
 
-# Header 1
-## Header 2
-### Header 3
+WordCat is written in C# .NET Framework 4.0.\
+To edit the code, I would recommend "Visual Studio 2019"
 
-- Bulleted
-- List
+### Creator
 
-1. Numbered
-2. List
+Hello! I'm FreshPlayer_YT (obviously my nickname).\
+I am the creator of the WordCat text editor. 
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/FreshPlayer/WordCat/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Links
+[User Manual](https://github.com/FreshPlayer/WordCat/blob/ROOT/HELP.md)\
+[GitHub Repository](https://github.com/FreshPlayer/WordCat)
+[Creators Homepage](https://www.freshplayeryt.com/)
