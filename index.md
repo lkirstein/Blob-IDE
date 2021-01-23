@@ -1,8 +1,8 @@
 View the [User Manual](https://github.com/FreshPlayer/WordCat/blob/ROOT/HELP.md) to get started or if you need help with the program.
 
-### Opensource project
+### Open source project
 
-WordCat is an opensource project.\
+WordCat is an open source project.\
 Visit the repository on [GitHub](https://github.com/FreshPlayer/WordCat)\
 if you want to contribute.
 
