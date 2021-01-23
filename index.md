@@ -1,4 +1,4 @@
-View the [User Manual](https://github.com/FreshPlayer/WordCat/blob/ROOT/HELP.md) to get started or if you need help with the program.
+View the [Wiki](https://github.com/FreshPlayer/WordCat/wiki) (not finished) to get started or if you need help with the program.
 
 ### Open source project
 
@@ -17,6 +17,8 @@ Hello! I'm FreshPlayer_YT (obviously my nickname).\
 I am the creator of the WordCat text editor. 
 
 ### Links
-[User Manual](https://github.com/FreshPlayer/WordCat/blob/ROOT/HELP.md)\
+
+[Wiki](https://github.com/FreshPlayer/WordCat/wiki) (not finished)\
 [GitHub Repository](https://github.com/FreshPlayer/WordCat)\
 [Creators Homepage](https://www.freshplayeryt.com/)
+
