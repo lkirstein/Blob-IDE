@@ -3,13 +3,13 @@ View the [User Manual](https://github.com/FreshPlayer/WordCat/blob/ROOT/HELP.md)
 ### Open source project
 
 WordCat is an open source project.\
-Visit the repository on [GitHub](https://github.com/FreshPlayer/WordCat)\
+Visit the repository on [GitHub](https://github.com/FreshPlayer/WordCat),\
 if you want to contribute.
 
 ### Information
 
 WordCat is written in C# .NET Framework 4.0.\
-To edit the code, I would recommend "Visual Studio 2019"
+To edit the code, I would recommend "Visual Studio 2019".
 
 ### Creator
 
@@ -18,5 +18,5 @@ I am the creator of the WordCat text editor.
 
 ### Links
 [User Manual](https://github.com/FreshPlayer/WordCat/blob/ROOT/HELP.md)\
-[GitHub Repository](https://github.com/FreshPlayer/WordCat)
+[GitHub Repository](https://github.com/FreshPlayer/WordCat)\
 [Creators Homepage](https://www.freshplayeryt.com/)
