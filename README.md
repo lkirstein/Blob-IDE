@@ -3,5 +3,3 @@
 "WordCat" is a free and open-source text editor by [FreshPlayer_YT](https://www.freshplayeryt.com/).\
 Programmed in C# .NET Framework 4.0.
 
-![Image](https://www.freshplayeryt.com/WordCat/repository-banner.png)
-
