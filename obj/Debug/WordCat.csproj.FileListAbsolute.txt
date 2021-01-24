@@ -1,0 +1,9 @@
+C:\Users\bruno\source\repos\WordCat\WordCat\bin\Debug\WordCat.exe
+C:\Users\bruno\source\repos\WordCat\WordCat\bin\Debug\WordCat.pdb
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.csprojAssemblyReference.cache
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.Form1.resources
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.Properties.Resources.resources
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.csproj.GenerateResource.cache
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.csproj.CoreCompileInputs.cache
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.exe
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.pdb
