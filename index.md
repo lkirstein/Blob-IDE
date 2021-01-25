@@ -9,7 +9,8 @@ if you want to contribute.
 ### Information
 
 WordCat is written in C# .NET Framework 4.0.\
-To edit the code, I would recommend "Visual Studio 2019".
+To edit the code, I would recommend "Visual Studio 2019".\
+Uploaded to [GitHub](https://github.com/FreshPlayer/WordCat) : 24.01.2021
 
 ### Creator
 
