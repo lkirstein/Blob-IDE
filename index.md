@@ -12,6 +12,11 @@ WordCat is written in C# .NET Framework 4.0.\
 To edit the code, I would recommend "Visual Studio 2019".\
 Uploaded to [GitHub](https://github.com/FreshPlayer/WordCat) : 24.01.2021
 
+### News
+
+WordCat v2.0 is in progress!\
+Download WordCat v.pre.1.1 [here](https://github.com/FreshPlayer/WordCat/releases/tag/v.pre.1.1).
+
 ### Creator
 
 Hello! I'm FreshPlayer_YT (obviously my nickname).\
