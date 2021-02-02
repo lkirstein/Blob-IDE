@@ -7,3 +7,26 @@ C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.csproj.GenerateRes
 C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.csproj.CoreCompileInputs.cache
 C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.exe
 C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.pdb
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.search_and_replace.resources
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.MD5_encryption.resources
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.MD5_decryption.resources
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.design_color_form.resources
+C:\Users\bruno\source\repos\WordCat\WordCat\bin\Debug\FastColoredTextBox.dll
+C:\Users\bruno\source\repos\WordCat\WordCat\bin\Debug\FastColoredTextBox.xml
+C:\Users\bruno\source\repos\WordCat\WordCat\obj\Debug\WordCat.csproj.CopyComplete
+C:\Users\bruno\Desktop\WordCat Code\WordCat\bin\Debug\WordCat.exe
+C:\Users\bruno\Desktop\WordCat Code\WordCat\bin\Debug\WordCat.pdb
+C:\Users\bruno\Desktop\WordCat Code\WordCat\bin\Debug\FastColoredTextBox.dll
+C:\Users\bruno\Desktop\WordCat Code\WordCat\bin\Debug\FastColoredTextBox.xml
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.csprojAssemblyReference.cache
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.Form1.resources
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.MD5_decryption.resources
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.MD5_encryption.resources
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.Properties.Resources.resources
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.search_and_replace.resources
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.csproj.GenerateResource.cache
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.csproj.CoreCompileInputs.cache
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.csproj.CopyComplete
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.exe
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.pdb
+C:\Users\bruno\Desktop\WordCat Code\WordCat\obj\Debug\WordCat.Cs_CopileWindow.resources
