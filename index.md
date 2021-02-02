@@ -14,8 +14,8 @@ Uploaded to [GitHub](https://github.com/FreshPlayer/WordCat) : 24.01.2021
 
 ### News
 
-WordCat v2.0 is in progress!\
-Download WordCat v.pre.1.1 [here](https://github.com/FreshPlayer/WordCat/releases/tag/v.pre.1.1).
+WordCat v2.0 is released!\
+Download v2.0 [here](https://github.com/FreshPlayer/WordCat/releases/tag/v2.0).
 
 ### Creator
 
