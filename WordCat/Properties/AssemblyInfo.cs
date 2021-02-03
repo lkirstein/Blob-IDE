@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("WordCat")]
-[assembly: AssemblyDescription("Word Cat Text Editor")]
+[assembly: AssemblyDescription("Word Cat Code Editor / Simple IDE")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FreshPlayer_YT")]
-[assembly: AssemblyProduct("WordCat Text Editor")]
+[assembly: AssemblyProduct("WordCat Simpe IDE")]
 [assembly: AssemblyCopyright("Copyright © FreshPlayer_YT 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
