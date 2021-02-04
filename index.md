@@ -1,4 +1,4 @@
-View the [Wiki](https://github.com/FreshPlayer/WordCat/wiki) (not finished) to get started or if you need help with the program.
+View the [Wiki](https://github.com/FreshPlayer/WordCat/wiki) (not finished) to get started or if you need help with the software.
 
 ### Open source project
 
