@@ -61,21 +61,21 @@ namespace WordCat.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Bitmap cat {
+        internal static System.Drawing.Icon BLOB {
             get {
-                object obj = ResourceManager.GetObject("cat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("BLOB", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon cat1 {
+        internal static System.Drawing.Icon Blob_128 {
             get {
-                object obj = ResourceManager.GetObject("cat1", resourceCulture);
+                object obj = ResourceManager.GetObject("Blob_128", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -83,10 +83,59 @@ namespace WordCat.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap document {
+        internal static System.Drawing.Bitmap BLOB1 {
             get {
-                object obj = ResourceManager.GetObject("document", resourceCulture);
+                object obj = ResourceManager.GetObject("BLOB1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap disk_icon {
+            get {
+                object obj = ResourceManager.GetObject("disk_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap disks_icon {
+            get {
+                object obj = ResourceManager.GetObject("disks_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drive_icon {
+            get {
+                object obj = ResourceManager.GetObject("drive_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drive_plus_icon {
+            get {
+                object obj = ResourceManager.GetObject("drive_plus_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream SplashSound {
+            get {
+                return ResourceManager.GetStream("SplashSound", resourceCulture);
             }
         }
     }

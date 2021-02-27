@@ -5,12 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace WordCat
 {
     public partial class search_and_replace : Form
     {
+
+        string progam_name = "WordCat";
 
         string search;
         Form1 calling_form;
@@ -38,7 +41,15 @@ namespace WordCat
             if(calling_form.search_and_select(textBox1.Text, checkBox1.Checked) == false)
             {
 
-                MessageBox.Show("Error : \"" + textBox1.Text + "\" Not found!", "WordCat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+                {
+                    MessageBox.Show("Error : \"" + textBox1.Text + "\" Not found!", progam_name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (Thread.CurrentThread.CurrentCulture.Name == "de-DE")
+                {
+                    MessageBox.Show("Fehler : \"" + textBox1.Text + "\" konnte nicht gefunden werden.", progam_name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
 
@@ -49,7 +60,15 @@ namespace WordCat
             if(calling_form.search_and_select(textBox2.Text, checkBox2.Checked) == false)
             {
 
-                MessageBox.Show("Error : \"" + textBox2.Text + "\" Not found!", "WordCat", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+                {
+                    MessageBox.Show("Error : \"" + textBox1.Text + "\" Not found!", progam_name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (Thread.CurrentThread.CurrentCulture.Name == "de-DE")
+                {
+                    MessageBox.Show("Fehler : \"" + textBox1.Text + "\" konnte nicht gefunden werden.", progam_name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
         }
