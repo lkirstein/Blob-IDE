@@ -16,13 +16,8 @@ First uploaded to [GitHub](https://github.com/FreshPlayer/Blob-IDE) : 24.01.2021
 
 RENAMED :
 Renamed WordCat to "Blob IDE"\
-WordCat v3.0 is released!\
+WordCat v3.0 is released! (27.02.2021)\
 Download  the latest version (v3.0) [here](https://github.com/FreshPlayer/Blob-IDE/releases/tag/v3.0).
-
-### Creator
-
-Hello! I'm FreshPlayer_YT (obviously my nickname).\
-I am the creator of the WordCat text editor. 
 
 ### Links
 
