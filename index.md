@@ -9,7 +9,7 @@ if you want to contribute.
 ### Information
 
 Blob IDE is written in C# .NET Framework 4.0.\
-To edit the code, I would recommend "Visual Studio 2019".\
+To edit the code, "Visual Studio 2019" is recommended.\
 First uploaded to [GitHub](https://github.com/FreshPlayer/Blob-IDE) : 24.01.2021
 
 ### News
