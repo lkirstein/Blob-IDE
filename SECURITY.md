@@ -2,11 +2,15 @@
 
 ## Supported Versions
 
-Update support status of WordCat versions
+Update support status of Blob-IDE versions
 
 | Version | Supported          |
 | ------- | ------------------ |
 | 1.0.0   | :x: |
+| 1.1.0   | :x: |
+| 2.0.0   | :x: |
+| 3.0.0   | :x: |
+| 4.0.0   | ✔️  |
 
 
 ## Reporting a security issue
