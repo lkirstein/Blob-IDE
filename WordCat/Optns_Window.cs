@@ -18,8 +18,9 @@ namespace WordCat
             InitializeComponent();
         }
 
+
         string program_name = "Blob IDE";
-        string version = "v3";
+        string version = "v4";
 
         ChangeLanguage_Class changeLang = new ChangeLanguage_Class();
 
@@ -74,14 +75,26 @@ namespace WordCat
             if(select_LANG_comboBox.SelectedIndex == 0)
             {
 
-                changeLang.UpdateConfig("language", "en-US");
+                StreamWriter sw = new StreamWriter("C:\\users\\" + Environment.UserName + "\\appdata\\roaming\\Blob-IDE\\Data\\lang\\language.xml");
+                sw.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+                sw.WriteLine("<configuration>");
+                sw.WriteLine("  <appSettings>");
+                sw.WriteLine("    <lang value=\"en-US\" />");
+                sw.WriteLine("  </appSettings>");
+                sw.WriteLine("</configuration>");
+                sw.Close();
 
             }
             if (select_LANG_comboBox.SelectedIndex == 1)
             {
-
-                changeLang.UpdateConfig("language", "de-DE");
-
+                StreamWriter sw = new StreamWriter("C:\\users\\" + Environment.UserName + "\\appdata\\roaming\\Blob-IDE\\Data\\lang\\language.xml");
+                sw.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+                sw.WriteLine("<configuration>");
+                sw.WriteLine("  <appSettings>");
+                sw.WriteLine("    <lang value=\"de-DE\" />");
+                sw.WriteLine("  </appSettings>");
+                sw.WriteLine("</configuration>");
+                sw.Close();
             }
         }
 
@@ -150,8 +163,25 @@ namespace WordCat
 
                 }
             }
+
+
+
+
+
+
+
             this.Close();
 
+        }
+
+        private void Optns_Window_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/FreshPlayer/Blob-IDE/wiki");
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

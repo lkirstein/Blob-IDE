@@ -13,31 +13,49 @@ namespace WordCat
 {
     static class Program
     {
-        /// <summary>
-        /// Der Haupteinstiegspunkt für die Anwendung.
-        /// </summary>
-        [STAThread]
+
+       [STAThread]
+
         static void Main(string[] argv)
         {
+            ChangeLanguage_Class clc = new ChangeLanguage_Class();
 
-            Console.Title = "Blob IDE Output  -  State : Running";
+            clc.Read();
+
+            string language;
+
+            string version = "4.0.0.0";
+
+            Console.Title = "Running : Blob-IDE version \"" + version + "\" on \"" + Environment.OSVersion + "\"";
 
             bool noParamStart = true;
 
-            var language = ConfigurationManager.AppSettings["language"];
+            string open_path = string.Empty;
+
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            language = clc.get_Val();
 
             Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(language);
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(language);
 
-            string version = "3.0.0.0";
+
+
 
             int i;
-
 
             bool enableVisualStyles = true;
             for (i = 0; i < argv.Length; i++)
             {
+               
+                if(argv[i] == "-open")
+                {
 
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new Editor(argv[i+1]));
+
+                }
                 if (argv[i] == "-draw")
                 {
                     noParamStart = false;
@@ -74,7 +92,7 @@ namespace WordCat
                     Console.WriteLine("Starting!");
 
                     Application.EnableVisualStyles();
-                    Application.Run(new Form1());
+                    Application.Run(new Editor(string.Empty));
 
 
                 }
@@ -229,7 +247,7 @@ namespace WordCat
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Starting!");
-                        Application.Run(new Form1());
+                        Application.Run(new Editor(string.Empty));
                     }
                 }
                 if (noParamStart == false)
@@ -245,7 +263,7 @@ namespace WordCat
 
             ConsoleStart:
 
-                Console.Title = "Blob IDE Console  -  State : Running";
+                Console.Title = "Blob-IDE Console  -  State : Running";
 
                 Console.WriteLine("\"Console Start\" is activated.\nIf you want to start the application, enter \"load\".\nIf you need help with Commands, type \"help\"\nYou can try some repair options, if you have some problems with errors.\n\n");
                 bool input_avalible = false;
@@ -260,12 +278,7 @@ namespace WordCat
                     Console.Write("User (" + Environment.UserName + ") >> ");
                     input = Console.ReadLine();
                 }
-                if(input_avalible = true)
-                {
 
-                    //nothing in here
-
-                }
 
 
 
@@ -277,7 +290,7 @@ namespace WordCat
                     input_avalible = false;
 
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("\n--- HELP ----------\n\nload            Starts the editor\nabout           Displays informations about the program\nrepair /av      Check if the files for a repair are avalible\nrepair /set     Resets the ENTIRE settings.\nrestart         Restarts the application\nhelp            Shows this list\ncls             Clears the console\nexit            Closes the program\n\n--- HELP ----------\n");
+                    Console.WriteLine("\n--- HELP ----------\n\nload            Starts the editor\nabout           Displays informations about the program\nrepair /av      Check if the files for a repair are avalible\nrepair /set     Resets the ENTIRE settings.\nupdate          Checks for updates\nrestart         Restarts the application\nhelp            Shows this list\ncls             Clears the console\nexit            Closes the program\n\n--- HELP ----------\n");
                     Console.ForegroundColor = ConsoleColor.White;
 
                     goto ConsoleMain;
@@ -291,7 +304,7 @@ namespace WordCat
 
 
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("\n--- ABOUT ----------\n\nCreator : FreshPlayer_YT\nApplication name : Blob IDE\nVersion : " + version + "\n\n--- ABOUT ----------\n");
+                    Console.WriteLine("\n--- ABOUT ----------\n\nCreator : FreshPlayer_YT\nApplication name : Blob-IDE\nVersion : " + version + "\n\n--- ABOUT ----------\n");
                     Console.ForegroundColor = ConsoleColor.White;
 
                     goto ConsoleMain;
@@ -303,6 +316,15 @@ namespace WordCat
                     input_avalible = false;
 
                     Application.Restart();
+
+
+                }
+                if (input == "update")
+                {
+
+                    input_avalible = false;
+
+                    Process.Start(Application.StartupPath + "\\update\\update.exe");
 
 
                 }
@@ -350,6 +372,9 @@ namespace WordCat
                         File.Delete("C:\\Users\\" + Environment.UserName + "\\appdata\\roaming\\Blob-IDE\\Data\\config\\options\\save_img.txt");
                         File.Copy(Application.StartupPath + "\\backups\\Data\\config\\options\\save_img.txt", "C:\\Users\\" + Environment.UserName + "\\appdata\\roaming\\Blob-IDE\\Data\\config\\options\\save_img.txt");
 
+                        File.Delete("C:\\Users\\" + Environment.UserName + "\\appdata\\roaming\\Blob-IDE\\Data\\lang\\language.xml");
+                        File.Copy(Application.StartupPath + "\\backups\\Data\\lang\\language.xml", "C:\\Users\\" + Environment.UserName + "\\AppData\\Roaming\\Blob-IDE\\Data\\lang\\language.xml");
+                        
                         if (File.Exists("C:\\Users\\" + Environment.UserName + "\\Appdata\\roaming\\Blob-IDE\\Data\\config\\options\\ConsoleStart") == true)
                         {
 
@@ -366,8 +391,10 @@ namespace WordCat
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("repair was successful!");
                         Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\nPress any key to restart the application...");
+                        Console.ReadLine();
 
-                        goto ConsoleMain;
+                        Application.Restart();
 
                     }
                     else
@@ -400,7 +427,7 @@ namespace WordCat
                 if(input == "load")
                 {
                     Console.Clear();
-                    Console.Title = "Blob IDE Output  -  State : Running";
+                    Console.Title = "Blob-IDE Output  -  State : Running";
 
                     if (noParamStart == true)
                     {
@@ -446,7 +473,7 @@ namespace WordCat
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Starting!");
-                            Application.Run(new Form1());
+                            Application.Run(new Editor(string.Empty));
                         }
                     }
                     if (noParamStart == false)
@@ -466,7 +493,7 @@ namespace WordCat
                 {
                     input_avalible = false;
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("This is an invalid command!");
+                    Console.WriteLine("\nThis is an invalid command!\n");
                     Console.ForegroundColor = ConsoleColor.White;
 
                     goto ConsoleMain;
@@ -485,5 +512,8 @@ namespace WordCat
 
 
         }
+
+
+
     }
 }

@@ -16,13 +16,13 @@ namespace WordCat
         string progam_name = "WordCat";
 
         string search;
-        Form1 calling_form;
+        Editor calling_form;
         int insert_position = 0;
 
         public search_and_replace(Form caller)
         {
             InitializeComponent();
-            calling_form = (Form1)caller;
+            calling_form = (Editor)caller;
         }
 
 

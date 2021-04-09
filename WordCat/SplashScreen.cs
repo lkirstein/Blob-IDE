@@ -30,13 +30,16 @@ namespace WordCat
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.Show();
+
 
             this.Hide();
             this.ShowInTaskbar = false;
 
             timer1.Stop();
+
+
+            Editor f1 = new Editor(string.Empty);
+            f1.Show();
         }
 
         private void timer2_Tick(object sender, EventArgs e)

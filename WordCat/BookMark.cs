@@ -12,12 +12,12 @@ namespace WordCat
     public partial class BookMark : Form
     {
 
-        Form1 calling_form;
+        Editor calling_form;
 
         public BookMark(Form caller)
         {
             InitializeComponent();
-            calling_form = (Form1)caller;
+            calling_form = (Editor)caller;
         }
 
         private void button1_Click(object sender, EventArgs e)

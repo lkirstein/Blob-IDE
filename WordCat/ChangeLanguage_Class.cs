@@ -10,36 +10,44 @@ namespace WordCat
     class ChangeLanguage_Class
     {
 
-        public void UpdateConfig(string key, string value)
-        {
-            var xmlDoc = new XmlDocument();
-            xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+        string val;
 
-            foreach(XmlElement xmlElement in xmlDoc.DocumentElement)
+  
+
+        public void Read()
+        {
+
+            XmlReader reader = XmlReader.Create("C:\\users\\" + Environment.UserName + "\\appdata\\roaming\\Blob-IDE\\Data\\lang\\language.xml");
+
+
+
+            while(reader.Read())
             {
 
-                if(xmlElement.Name.Equals("appSettings"))
+                if((reader.NodeType == XmlNodeType.Element) && (reader.Name == "lang"))
                 {
 
-                    foreach(XmlNode xNode in xmlElement.ChildNodes)
+                    if(reader.HasAttributes)
                     {
 
-                        xNode.Attributes[1].Value = value;
-
+                        val = reader.GetAttribute("value");
+                        
                     }
 
                 }
 
             }
 
+        }
 
-            ConfigurationManager.RefreshSection("appSettings");
+        public string get_Val()
+        {
 
-            xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-
+            return val;
 
         }
 
-
     }
+
+
 }

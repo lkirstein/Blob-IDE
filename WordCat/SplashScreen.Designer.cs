@@ -48,7 +48,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 2500;
+            this.timer1.Interval = 2600;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // timer2

@@ -14,35 +14,62 @@ using System.Speech.Synthesis;
 using System.Xml;
 using System.Threading;
 using System.CodeDom.Compiler;
+using Microsoft.VisualBasic;
+using System.Configuration;
+using System.Net;
 
 namespace WordCat
 {
-    public partial class Form1 : Form
+    public partial class Editor : Form
     {
 
 
-        string program_name = "Blob IDE";
+        string program_name = "Blob-IDE";
 
-        public Form1()
+        
+
+        public Editor(string external_path)
         {
             InitializeComponent();
+
+            
+
+            if (external_path != string.Empty)
+            {
+
+                if (File.Exists(external_path))
+                {
+                    StreamReader sr = new StreamReader(external_path);
+                    string file_content = sr.ReadToEnd();
+                    codeBox1.Text = file_content;
+
+                    this.Text = program_name + " " + version + " - " + external_path;
+                }
+                else
+                {
+
+                    MessageBox.Show("Invalid Path!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
+
+                }
+            }
+
 
         }
 
 
 
         //Strings
-        string version = "v3";
+        string version = "v4";
         string Path = "";
 
-        string debug_Path = "C:\\";
+        string script = "";
 
 
 
         //Saving
         bool saved = false;
 
-
+        bool toolbar_seperator_visible;
 
         //Checkbox Bool
 
@@ -55,63 +82,60 @@ namespace WordCat
         SpeechSynthesizer sp = new SpeechSynthesizer();
 
 
- 
-
-
         //EDITOR ACTIONS
 
         private void cutToolStripButton_contextMenu_Click(object sender, EventArgs e)
         {
             codeBox1.Cut();
-            richTextBox1.AppendText("Cut text\n");
+            richTextBox1.AppendText(DateTime.Now + " - Cut text\n");
         }
 
         private void copyToolStripButton_contextMenu_Click(object sender, EventArgs e)
         {
             codeBox1.Copy();
-            richTextBox1.AppendText("Copied text to clipboard.\n");
+            richTextBox1.AppendText(DateTime.Now + " - Copied text to clipboard.\n");
         }
 
         private void pasteToolStripButton_contextMenu_Click(object sender, EventArgs e)
         {
             codeBox1.Paste();
-            richTextBox1.AppendText("Pasted text.\n");
+            richTextBox1.AppendText(DateTime.Now + " - Pasted text.\n");
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             codeBox1.Undo();
-            richTextBox1.AppendText("Undo operation.\n");
+            richTextBox1.AppendText(DateTime.Now + " - Undo operation.\n");
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             codeBox1.Redo();
-            richTextBox1.AppendText("Redo operation.\n");
+            richTextBox1.AppendText(DateTime.Now + " - Redo operation.\n");
         }
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             codeBox1.Cut();
-            richTextBox1.AppendText("Cut text\n");
+            richTextBox1.AppendText(DateTime.Now + " - Cut text\n");
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             codeBox1.Copy();
-            richTextBox1.AppendText("Copied text to clipboard.\n");
+            richTextBox1.AppendText(DateTime.Now + " - Copied text to clipboard.\n");
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             codeBox1.Paste();
-            richTextBox1.AppendText("Pasted text.\n");
+            richTextBox1.AppendText(DateTime.Now + " - Pasted text.\n");
         }
 
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             codeBox1.SelectAll();
-            richTextBox1.AppendText("Select all...\n");
+            richTextBox1.AppendText(DateTime.Now + " - Select all...\n");
         }
         //EDITOR ACTIONS.
 
@@ -120,7 +144,23 @@ namespace WordCat
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            codeBox1.BookmarkColor = Color.OrangeRed;
+            StreamReader sr_update = new StreamReader(Application.StartupPath + "\\update\\info.txt");
+            string curr_ver_update = sr_update.ReadLine();
+            sr_update.Close();
+
+            WebClient wbc = new WebClient();
+
+            if (!wbc.DownloadString("https://files.freshplayeryt.com/Updates/Blob-IDE/version.txt").Contains(curr_ver_update))
+            {
+
+                if (MessageBox.Show("Updates avalible! Do you want to download and install the new update?", "Blob-IDE", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    Process.Start(Application.StartupPath + "\\update\\load_s.cmd");
+                    Thread.Sleep(8000);
+                    Process.Start(Application.StartupPath + "\\BlobIDE.exe");
+                    Application.ExitThread();
+                }
+            }
 
 
             if (File.Exists(Application.StartupPath + "\\BlobIDE_ColorPicker.exe") == true)
@@ -145,7 +185,7 @@ namespace WordCat
             StreamReader srColor = new StreamReader("C:\\Users\\" + Environment.UserName + "\\Appdata\\roaming\\Blob-IDE\\Data\\config\\colors.txt");
             string fontColor = srColor.ReadLine();
             string currLineColor = srColor.ReadLine();
-            string lineNumColor= srColor.ReadLine();
+            string lineNumColor = srColor.ReadLine();
             string lineNumBckColor = srColor.ReadLine();
             string selColor = srColor.ReadLine();
             string bookMarkColor = srColor.ReadLine();
@@ -171,6 +211,9 @@ namespace WordCat
 
 
 
+            StreamReader srScript = new StreamReader("C:\\Users\\" + Environment.UserName + "\\AppData\\Roaming\\Blob-IDE\\Data\\config\\script.txt");
+            script = srScript.ReadLine();
+            srScript.Close();
 
 
 
@@ -354,7 +397,24 @@ namespace WordCat
                 saveToolStripButton.Image = Properties.Resources.drive_icon;
             }
 
+            StreamReader sr3 = new StreamReader("C:\\Users\\" + Environment.UserName + "\\Appdata\\roaming\\Blob-IDE\\Data\\config\\toolbar_seperator.txt");
+            string content = sr3.ReadLine();
+            sr2.Close();
 
+            if (content == "true")
+            {
+
+                toolbar_seperator_visible = true;
+                toolbar_seperator.Visible = true;
+
+            }
+            if (content == "false")
+            {
+
+                toolbar_seperator.Visible = false;
+                toolbar_seperator_visible = false;
+
+            }
 
 
         }
@@ -368,6 +428,11 @@ namespace WordCat
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            StreamWriter swScript = new StreamWriter("C:\\Users\\" + Environment.UserName + "\\AppData\\Roaming\\Blob-IDE\\Data\\config\\script.txt");
+            swScript.WriteLine(script);
+            swScript.Close();
+
             StreamWriter sw = new StreamWriter("C:\\Users\\" + Environment.UserName + "\\Appdata\\roaming\\Blob-IDE\\Data\\config\\checkboxes.txt");
             sw.WriteLine(checkBox_acc_tab.Checked);
             sw.WriteLine(checkBox_readOnly.Checked);
@@ -433,7 +498,7 @@ namespace WordCat
                     else
                     {
                         e.Cancel = true;
-                        richTextBox1.AppendText("Tried to close.");
+                        richTextBox1.AppendText(DateTime.Now + " - Tried to close.");
                     }
                 }
                 if (Thread.CurrentThread.CurrentCulture.Name == "de-DE")
@@ -445,7 +510,7 @@ namespace WordCat
                     else
                     {
                         e.Cancel = true;
-                        richTextBox1.AppendText("Versuchte zu schliessen.");
+                        richTextBox1.AppendText(DateTime.Now + " - Versuchte zu schliessen.");
                     }
                 }
             }
@@ -494,6 +559,14 @@ namespace WordCat
             {
 
                 this.WindowState = FormWindowState.Normal;
+                if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+                {
+                    maximizeToolStripMenuItem.Text = "Maximize";
+                }
+                if (Thread.CurrentThread.CurrentCulture.Name == "de-DE")
+                {
+                    maximizeToolStripMenuItem.Text = "Maximieren";
+                }
 
             }
             else if (this.WindowState == FormWindowState.Normal)
@@ -501,57 +574,33 @@ namespace WordCat
 
                 this.WindowState = FormWindowState.Maximized;
 
+                maximizeToolStripMenuItem.Text = "Normal";
+
+
             }
         }
 
         private void mD5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MD5_encryption md5f = new MD5_encryption();
-            md5f.Show();
+            md5f.ShowDialog();
         }
 
         private void mD5DercyptToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MD5_decryption md5d = new MD5_decryption();
-            md5d.Show();
+            md5d.ShowDialog();
         }
 
 
 
 
 
-        private void stopToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sp.Dispose();
-        }
-
-
-        private void speakToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-
-            if (codeBox1.Text == "29.01.2021")
-            {
-
-                sp.SpeakAsync("Hello! We have the 29th of january 2021 7:29:55 PM and Im sitting in my room. I have my window open. IT IS COLD!");
-
-            }
-
-            else if (codeBox1.Text != "")
-            {
-
-                sp.Dispose();
-                sp = new SpeechSynthesizer();
-                sp.SpeakAsync(codeBox1.SelectedText);
-
-            }
-
-        }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About_Window abw = new About_Window();
-            abw.Show();
+            abw.ShowDialog();
         }
 
 
@@ -564,24 +613,9 @@ namespace WordCat
         private void searchToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             search_and_replace sar1 = new search_and_replace(this);
-            sar1.Show();
+            sar1.ShowDialog();
         }
 
-        private void timeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            DateTime dt = DateTime.Now;
-            codeBox1.AppendText(dt.ToString("h:mm:ss tt"));
-
-        }
-
-        private void dateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            DateTime dt = DateTime.Now;
-            codeBox1.AppendText(dt.ToString("d"));
-
-        }
 
 
 
@@ -589,9 +623,9 @@ namespace WordCat
         private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog sfd1 = new SaveFileDialog();
-            sfd1.Filter = "JSON File|*.json";
+            sfd1.Filter = "JSON File (*.JSON)|*.json";
             sfd1.FileName = "ExportedJSON";
-            sfd1.Title = ("Export JSON");
+            sfd1.Title = ("Export \"JSON File\"");
 
             if (sfd1.ShowDialog() == DialogResult.OK)
             {
@@ -603,6 +637,58 @@ namespace WordCat
             }
         }
 
+
+
+        private void cSourceFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd1 = new SaveFileDialog();
+            sfd1.Filter = "C Source File (*.C)|*.C";
+            sfd1.FileName = "C-FILE";
+            sfd1.Title = ("Export \"C Source File\"");
+
+            if (sfd1.ShowDialog() == DialogResult.OK)
+            {
+
+                StreamWriter sw = new StreamWriter(sfd1.FileName);
+                sw.Write(codeBox1.Text);
+                sw.Close();
+
+            }
+        }
+
+        private void cSourceFileToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd1 = new SaveFileDialog();
+            sfd1.Filter = "C++ Source File (*.cpp)|*.cpp";
+            sfd1.FileName = "CPP Source File";
+            sfd1.Title = ("Export \"C++ Source File\"");
+
+            if (sfd1.ShowDialog() == DialogResult.OK)
+            {
+
+                StreamWriter sw = new StreamWriter(sfd1.FileName);
+                sw.Write(codeBox1.Text);
+                sw.Close();
+
+            }
+        }
+
+        private void pythonFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd1 = new SaveFileDialog();
+            sfd1.Filter = "Python File (*.py)|*.py";
+            sfd1.FileName = "Python File";
+            sfd1.Title = ("Export \"Python File\"");
+
+            if (sfd1.ShowDialog() == DialogResult.OK)
+            {
+
+                StreamWriter sw = new StreamWriter(sfd1.FileName);
+                sw.Write(codeBox1.Text);
+                sw.Close();
+
+            }
+        }
         //MENU STRIP.
 
 
@@ -624,21 +710,7 @@ namespace WordCat
             }
         }
 
-        private void checkBox_detectURLS_CheckedChanged(object sender, EventArgs e)
-        {
-            /*if (checkBox_detectURLS.Checked == true)
-            {
 
-                richTextBox1.DetectUrls = true;
-
-            }
-            if (checkBox_detectURLS.Checked == false)
-            {
-
-                richTextBox1.DetectUrls = false;
-
-            }*/
-        }
 
         private void checkBox_readOnly_CheckedChanged(object sender, EventArgs e)
         {
@@ -702,7 +774,7 @@ namespace WordCat
                 if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
                 {
                     MessageBox.Show("Reached Minimum Size!", program_name + " " + version, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    richTextBox1.AppendText( DateTime.Now + "  -  Reached Minimum Size! (Editor Zoom)\n");
+                    richTextBox1.AppendText(DateTime.Now + "  -  Reached Minimum Size! (Editor Zoom)\n");
                 }
                 if (Thread.CurrentThread.CurrentCulture.Name == "de-DE")
                 {
@@ -894,6 +966,15 @@ namespace WordCat
 
         //SOME METHODS
 
+        public void Load_Exteral_File(string external_path)
+        {
+
+            StreamReader sr = new StreamReader(external_path);
+            string file_content = sr.ReadToEnd();
+            codeBox1.Text = file_content;
+
+        }
+
 
         public string bookmark(int lineNum)
         {
@@ -901,6 +982,60 @@ namespace WordCat
             codeBox1.BookmarkLine(lineNum);
 
             return null;
+
+        }
+
+
+        public string open_project(string sended_path, string open_filename)
+        {
+
+            if (open_filename == "index.html")
+            {
+
+                toolStripMenuItem1.Visible = true;
+                hTMLToolStripMenuItem.Checked = true;
+                codeBox1.Language = FastColoredTextBoxNS.Language.HTML;
+
+                textToolStripMenuItem.Checked = false;
+                xMLToolStripMenuItem.Checked = false;
+                jSToolStripMenuItem.Checked = false;
+                pHPToolStripMenuItem.Checked = false;
+                cToolStripMenuItem.Checked = false;
+                visualBasicToolStripMenuItem.Visible = false;
+                viToolStripMenuItem.Checked = false;
+                cToolStripMenuItem1.Visible = false;
+
+            }
+            else if (open_filename == "program.cs")
+            {
+
+                cToolStripMenuItem.Checked = true;
+                cToolStripMenuItem1.Visible = true;
+                codeBox1.Language = FastColoredTextBoxNS.Language.CSharp;
+
+                hTMLToolStripMenuItem.Checked = false;
+                xMLToolStripMenuItem.Checked = false;
+                jSToolStripMenuItem.Checked = false;
+                pHPToolStripMenuItem.Checked = false;
+                visualBasicToolStripMenuItem.Visible = false;
+                textToolStripMenuItem.Checked = false;
+                viToolStripMenuItem.Checked = false;
+                toolStripMenuItem1.Visible = false;
+
+            }
+
+            explorer1.Navigate(sended_path);
+
+            StreamReader sr = new StreamReader(sended_path + "\\" + open_filename);
+            string file_content = sr.ReadToEnd();
+            codeBox1.Text = file_content;
+
+            Path = sended_path + "\\" + open_filename;
+            this.Text = program_name + " " + version + " - " + Path;
+
+            saved = true;
+
+            return "";
 
         }
 
@@ -927,7 +1062,7 @@ namespace WordCat
 
         public bool search_and_select(string search_content, bool backwards)
         {
-
+            
             return (codeBox1.SelectNext(search_content, backwards));
 
         }
@@ -944,6 +1079,7 @@ namespace WordCat
             return openWithIcon;
 
         }
+
 
         //SOME METHODS.
 
@@ -1121,29 +1257,27 @@ namespace WordCat
         {
             Directory.CreateDirectory(explorer1.Url.ToString() + "\\New Folder");
         }
+       
 
 
-
-        //EXPLORER.
+        //EXPLORER. 
 
 
         //EDITOR TEXTBOX
 
         private void richTextBox1_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
         {
-            if(saved)
+            if (saved)
             {
 
-                this.Text = program_name + " " + version + " - " + Path + "*" ;
+                this.Text = program_name + " " + version + " - " + Path + "*";
                 saved = false;
 
             }
-
-            if(hTMLToolStripMenuItem.Checked == true)
+            else if (saved == false)
             {
 
-                HTML_Browser browse = new HTML_Browser(Path);
-                browse.refresh();
+
 
             }
         }
@@ -1233,6 +1367,52 @@ namespace WordCat
 
 
 
+        //Scripts
+        private void currentScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if ((script != "") && (script != string.Empty) && (script != null))
+            {
+                MessageBox.Show("Current Script :\n\n" + script, "Current Script", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Current Script :\n\n<NONE>", "Current Script", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
+        private void addScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            script = Interaction.InputBox("Please enter a path :\n", "Add Script", "");
+        }
+
+        private void runScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (script == "<EMPTY>")
+            {
+                MessageBox.Show("This script is empty!", "Script", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if ((script != "") && (script != string.Empty) && (script != null))
+            {
+                Process.Start("C:\\Users\\" + Environment.UserName + "\\AppData\\Roaming\\Blob-IDE\\Data\\use.exe", script);
+            }
+            else
+            {
+                MessageBox.Show("The script path is not a valid path!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void removeScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            script = null;
+            MessageBox.Show("Script removed!", "Scripts", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+        //Scripts.
+
+
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -1247,7 +1427,7 @@ namespace WordCat
         private void compileApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Cs_CompileWindow cscw = new Cs_CompileWindow();
-            cscw.Show();
+            cscw.ShowDialog();
         }
 
         private void graphicsEditorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1259,12 +1439,12 @@ namespace WordCat
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Optns_Window optwin = new Optns_Window();
-            optwin.Show();
+            optwin.ShowDialog();
         }
 
         private void newConsoleApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            codeBox1.Text = "using System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Text;\n\nnamespace newConsoleApp\n{     \n    class Program\n   {\n\n       static void Main(string[] args)\n       {\n\n       }\n\n   }\n\n}";
+            codeBox1.Text = "using System;\nusing System.Collections.Generic;\nusing System.Text;\n\nnamespace newConsoleApp\n{     \n    class Program\n   {\n\n       static void Main(string[] args)\n       {\n             Console.WriteLine(\"Hello World!\");\n             Console.ReadLine();\n       }\n\n   }\n\n}";
         }
 
         private void blobIDEColorpickerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1275,7 +1455,7 @@ namespace WordCat
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
             BookMark bmWin = new BookMark(this);
-            bmWin.Show();
+            bmWin.ShowDialog();
         }
 
         private void previewBrowserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1288,17 +1468,122 @@ namespace WordCat
             }
             else
             {
-                HTML_Browser browse = new HTML_Browser(Path);
-                browse.Show();
+                Process.Start(Path);
             }
         }
 
         private void compileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VB_CompileWindow vbcw = new VB_CompileWindow();
-            vbcw.Show();
+            vbcw.ShowDialog();
         }
 
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
 
+                terminal_Log.AppendText("\n" + terminal_Input.Text);
+
+                if (terminal_Input.Text == "cls")
+                {
+
+                    terminal_Log.Clear();
+                    terminal_Input.Clear();
+
+                }
+                else
+                {
+                    Process.Start("C:\\Users\\" + Environment.UserName + "\\AppData\\Roaming\\Blob-IDE\\Data\\use.exe", terminal_Input.Text);
+                    terminal_Input.Clear();
+                }
+
+
+            }
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            if (toolStrip1.Dock == DockStyle.Top)
+            {
+
+                toolStrip1.Dock = DockStyle.Bottom;
+                statusStrip1.Dock = DockStyle.Top;
+                toolStripButton8.Image = Properties.Resources.arrow_090;
+
+            }
+            else if (toolStrip1.Dock == DockStyle.Bottom)
+            {
+
+                toolStripButton8.Image = Properties.Resources.arrow_270;
+                toolStrip1.Dock = DockStyle.Top;
+                statusStrip1.Dock = DockStyle.Bottom;
+
+            }
+        }
+
+        private void mSPaintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("MSPaint.exe");
+        }
+
+        private void cProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cs_Proj_Create_Win cs_proj_create = new Cs_Proj_Create_Win(this);
+            cs_proj_create.ShowDialog();
+        }
+
+        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Project_Interaction proj_interact = new Project_Interaction();
+
+            openFileDialog1.Filter = "XML-Document|*.xml";
+            openFileDialog1.FileName = "";
+
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                proj_interact.Get_Info(openFileDialog1.FileName);
+
+            }
+        }
+
+        private void websiteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Website_Proj_Create_Win wpcw = new Website_Proj_Create_Win(this);
+            wpcw.ShowDialog();
+        }
+
+        private void creatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("mailto:");
+        }
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Application.StartupPath + "\\update\\load.cmd");   
+        }
+
+        private void versionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/FreshPlayer/Blob-IDE/tags");
+        }
+
+        private void useexeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("use.exe");
+        }
+
+        private void rEADMEmdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/FreshPlayer/Blob-IDE/blob/ROOT/README.md");
+        }
+
+        private void explorer_toolBar_addFolder_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

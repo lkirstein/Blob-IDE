@@ -104,7 +104,8 @@
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxDescription.Size = new System.Drawing.Size(282, 163);
             this.textBoxDescription.TabIndex = 6;
-            this.textBoxDescription.Text = "Blob IDE \r\nCode Editor / IDE\r\n\r\nIcons by :\r\nYusuke Kamiyamane";
+            this.textBoxDescription.Text = "Blob IDE \r\nCode Editor / IDE\r\n\r\nIcons by :\r\nYusuke Kamiyamane (Except Product Ico" +
+    "n)";
             // 
             // linkLabel1
             // 

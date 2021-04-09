@@ -118,28 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 13</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Zeile :</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>Erstellen</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAD///8AAAAAAgAAAAwAAAAWAAAAGgAAABoAAAAaAAAAGgAAABoAAAAaAAAAGgAAABoAAAAXAAAADAAA
-        AAL///8A////AAAAAAQAAAAXAAAAKwAAADMAAAAzBQUFXwcHB4kHBweJBQUFXwAAADMAAAAzAAAALQAA
-        ABgAAAAE////AP///wAAAAAABAQEAAkJCUoLCwuHBwcHIgsLC4fn19f/4tPT/wsLC4cHBwciCwsLhwkJ
-        CUoEBAQAAAAAAP///wD///8AERERABEREUlFQkKk2MvL/yknJ5EQEBCF08bG/9PGxv8QEBCFKScnkdjL
-        y/9FQkKkERERSREREQD///8A////ABYWFgAWFhaC0MbG/7qxsf/MwsL/m5SU4NTKyv/Uysr/m5SU4MzC
-        wv+6sbH/0MbG/xYWFoIWFhYA////AP///wAeHh4AHR0dIDMyMozMxsb/w729/+TZ2f/36Oj/9+jo/+TZ
-        2f/Dvb3/zMbG/zMyMowdHR0gHh4eAP///wD///8AJSUlRSQkJHwkJCR8lJOT39TPz/+8srLPNjMzfTYz
-        M328srLP1M/P/5STk98kJCR8JCQkfCUlJUX///8A////ACsrK3nExMT/u7u7/8TExP/W09P/MjAwggEB
-        AQABAQEAMjAwgtbT0//ExMT/u7u7/8TExP8rKyt5////AP///wAyMjJ2y8zM/76/v//Gx8f/0tLS/y4t
-        LYcDAwMAAwMDAC4tLYfS0tL/xsfH/76/v//LzMz/MjIydv///wD///8AODg4Pzk5OXM5OTlzoKGh3NPU
-        1P+lpqbXLCwslSwsLJWlpqbX09TU/6Chodw5OTlzOTk5czg4OD////8A////ADk5OQA/Pz8cU1NTftDR
-        0f/P0ND/3d7e/+Hi4v/h4uL/3d7e/8/Q0P/Q0dH/U1NTfj8/Pxw5OTkA////AP///wBHR0cAR0dHbeDg
-        4P/Ky8v/5OXl/7S0tNvk5OT/5OTk/7S0tNvc3Nz/ysvL/+Dg4P9HR0dtR0dHAP///wD///8ASkpKAEtL
-        Szt2dnaQ6urq/2FhYXpMTExr5ebm/+Xm5v9MTExrYWFheurq6v92dnaQS0tLO0pKSgD///8A////AEpK
-        SgBMTEwAUFBQOlFRUWlQUFAbUVFRafr6+v/19fX/UVFRaVBQUBtRUVFpUFBQOkxMTABKSkoA////AP//
-        /wBKSkoATExMAFFRUQBSUlIAUVFRAFRUVDlUVFRnVFRUZ1RUVDlRUVEAUlJSAFFRUQBMTEwASkpKAP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8AgAEAAIABAADgBwAAwAMAAMADAADAAwAAgAEAAIGBAACBgQAAgAEAAMADAADAAwAAwAMAAOAH
-        AAD8PwAA//8AAA==
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAGgAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD///8AAQEACggDACUTCAAwIA0AOioRAEgAAABiAAAAjwAAAO0AAACPAAAAYioRAEggDQA6EwgAMAgD
+        ACYBAQAK////AFMiAJpwMQTMeT0S0IVQJ9eOYj3fZ2Va96yqmv2bm4r/rKqa/WdlWveOYj3fhVAn13k9
+        EtBwMQTMUyIAmv///wB5NADAu7uq/7+/rv/Fxbb/zs7A/97e0f/o6Nr/n5+O/+vr3P/d3dD/zs7A/8XF
+        tv+/v67/u7uq/3k0AMD///8Ahz4Atf/////+/vz/+/v3//j48v/z8+v/6+ve/6Skk//x8eL/9vbs//r6
+        8//8/Pf//v77/////v+HPgC1////AI1CALD//////f37//r69v/29vH/8vLq/+vr3v+pqZj/8fHi//b2
+        7P/5+fL/+/v2//39+v////7/jUIAsP///wCRRQCt//////39+//6+vb/9vbx//Ly6v/r697/r6+e//Hx
+        4v/29uz/+fny//v79v/9/fr////+/5FFAK3///8AlUcAqv/////9/fv/+vr2//b28f/y8ur/6+ve/7S0
+        o//x8eL/9vbs//n58v/7+/b//f36/////v+VRwCq////AJlKAKf//////f37//r69v/29vH/8vLq/+vr
+        3v+6uqn/8fHi//b27P/5+fL/+/v2//39+v////7/mUoAp////wCcTACk//////39+//6+vb/9vbx//Ly
+        6v/r697/v7+u//Hx4v/29uz/+fny//v79v/9/fr////+/5xMAKT///8AoE4Aov/////9/fv/+vr2//b2
+        8f/y8ur/6+ve/8TEs//x8eL/9vbs//n58v/7+/b//f36/////v+gTgCi////AKNRAJ///////f37//r6
+        9v/29vH/8vLq/+vr3v/IyLf/8fHi//b27P/5+fL/+/v2//39+v////7/o1EAn////wCmUgCd//////39
+        +//6+vb/9vbx//Ly6v/r697/zMy7//Hx4v/29uz/+fny//v79v/9/fr////+/6ZSAJ3///8AqFQAm///
+        ///9/fv/+vr2//b28f/z8+v/6+rc8n9/VWbu7d3y9/ft//n58v/7+/b//f36/////v+oVACb////AKpV
+        AJr//////Pz5+fT07uvn59zXycm0tJyceXZ/f1Uxm5t4dsnJsrTn59rX9PTs6/v7+Pn///7/qlUAmv//
+        /wB/f1VNf39VZn9/VWF/f1VXf39VSX9/VS5/f1UOf39VAH9/VQ5/f1Uuf39VSX9/VVd/f1Vhf39VZn9/
+        VU3///8A/H8AAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAAB
+        AAAAAQAAAQEAAA==
 </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Buchzeichen erstellen</value>
   </data>
 </root>
