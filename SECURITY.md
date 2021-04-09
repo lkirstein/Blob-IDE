@@ -10,6 +10,7 @@ Update support status of Blob-IDE versions
 | 1.1.0   | :x: |
 | 2.0.0   | :x: |
 | 3.0.0   | :x: |
+| 4.0.0   | ✔️  |
 
 
 ## Reporting a security issue
