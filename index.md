@@ -14,10 +14,9 @@ First uploaded to [GitHub](https://github.com/FreshPlayer/Blob-IDE) : 24.01.2021
 
 ### News
 
-RENAMED :
-Renamed WordCat to "Blob IDE"\
-WordCat v3.0 is released! (27.02.2021)\
-Download  the latest version (v3.0) [here](https://github.com/FreshPlayer/Blob-IDE/releases/tag/v3.0).
+WordCat v4.0 is released! (09.04.2021)\
+Update Support for v4.0!\
+Download  the latest version (v4.0) [here](https://github.com/FreshPlayer/Blob-IDE/releases/tag/v4.0).
 
 ### Links
 
